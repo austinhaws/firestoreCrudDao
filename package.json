@@ -1,0 +1,28 @@
+{
+  "name": "@austinhaws/firestorecruddao",
+  "version": "1.0.0",
+  "description": "A simple firestore CRUD Dao",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austinhaws/firestoreCrudDao.git"
+  },
+  "keywords": [
+    "firestore",
+    "crud",
+    "dao"
+  ],
+  "author": "Austin Haws <austinhaws@gmail.com> (https://github.com/austinhaws/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/austinhaws/firestoreCrudDao/issues"
+  },
+  "homepage": "https://github.com/austinhaws/firestoreCrudDao#readme",
+  "dependencies": {
+    "@google-cloud/firestore": "^4.9.4",
+    "firebase-admin": "^9.5.0"
+  }
+}
