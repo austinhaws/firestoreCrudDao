@@ -1,7 +1,7 @@
 const { saveRecordAsync } = require('./src/crudDao/saveRecordAsync');
 const { readRecordsWhereAsync } = require('./src/crudDao/readRecordsWhereAsync');
 const { deleteRecordsAsync } = require('./src/crudDao/deleteRecordsAsync');
-const { initFirestoreDb } = require('./src/dao/base/crudDao/firestoreDb');
+const { initFirestoreDb } = require('./src/crudDao/firestoreDb');
 
 exports.initFirestoreDB = initFirestoreDb;
 
