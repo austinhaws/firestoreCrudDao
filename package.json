@@ -1,6 +1,6 @@
 {
   "name": "@austinhaws/firestore-crud-dao",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple firestore CRUD Dao",
   "main": "index.js",
   "scripts": {
