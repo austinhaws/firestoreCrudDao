@@ -1,3 +1,4 @@
+const { mocks } = require('../test/mockCrudDao');
 const { firestoreDb } = require('./firestoreDb');
 const { collectionToArray } = require('../util/collectionToArray');
 
@@ -32,7 +33,10 @@ const readByIdAsync = async ({ collection, id }) => {
  */
 exports.readRecordsWhereAsync = async ({ collection, where, convertToObjects = true }) => {
   let result;
-  if (where && where.id) {
+
+  if (mocks.readRecordsWhereAsync) {
+    result = mocks.readRecordsWhereAsync({ collection, where, convertToObjects });
+  } else if (where && where.id) {
     result = await readByIdAsync({ collection, id: where.id });
   } else if (where && where.ids) {
     result = await readByIdsAsync({ collection, ids: where.ids });

@@ -1,3 +1,4 @@
+const { mocks } = require('../test/mockCrudDao');
 const { firestoreDb } = require('./firestoreDb');
 const { jsonParseStringify } = require('../util/jsonParseStringify');
 const { readRecordsWhereAsync } = require('./readRecordsWhereAsync');
@@ -20,7 +21,9 @@ const { readRecordsWhereAsync } = require('./readRecordsWhereAsync');
 exports.saveRecordAsync = async ({ collection, record, merge, where }) => {
   let naturalInput = jsonParseStringify(record);
 
-  if (record.id) {
+  if (mocks.saveRecordAsync) {
+    naturalInput = mocks.saveRecordAsync({ collection, record, merge, where });
+  } else if (record.id) {
     await firestoreDb().collection(collection).doc(record.id).set(naturalInput, { merge: !!merge });
 
     // because of merge, the naturalInput may not have all the input

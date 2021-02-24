@@ -1,3 +1,4 @@
+const { mocks } = require('../test/mockCrudDao');
 const { firestoreDb } = require('./firestoreDb');
 
 const deleteByIdsAsync = async ({ collection, ids }) => {
@@ -35,7 +36,9 @@ const deleteByIdAsync = async ({ collection, id }) => {
 exports.deleteRecordsAsync = async ({ collection, where }) => {
   let result;
 
-  if (where && where.id) {
+  if (mocks.deleteRecordsAsync) {
+    result = await mocks.deleteRecordsAsync({ collection, where });
+  } else if (where && where.id) {
     result = await deleteByIdAsync({ collection, id: where.id });
   } else if (where && where.ids) {
     result = await deleteByIdsAsync({ collection, ids: where.ids });
