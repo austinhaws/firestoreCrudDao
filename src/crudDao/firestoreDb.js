@@ -17,4 +17,10 @@ exports.initFirestoreDb = ({ projectId, keyFilename }) => {
     return firestoreDb;
 };
 
-exports.firestoreDb = () => firestoreDb;
+exports.firestoreDb = () => {
+    if (!firestoreDb) {
+        throw new Error('Firestore DB could not be created; Make sure to call initFirestoreDB() before making calls');
+    }
+
+    return firestoreDb;
+};
